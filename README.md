@@ -44,6 +44,26 @@ npm i -g wpmcp
 npx wpmcp
 ```
 
+### MCP Client Setup
+
+Add to your MCP client configuration (e.g., Claude Desktop, Cline):
+
+```json
+{
+  "mcpServers": {
+    "wordpress": {
+      "command": "npx",
+      "args": ["-y", "wpmcp"],
+      "env": {
+        "WORDPRESS_URL": "https://yourblog.com",
+        "WORDPRESS_USERNAME": "admin",
+        "WORDPRESS_PASSWORD": "your-password"
+      }
+    }
+  }
+}
+```
+
 ### Option 2: Clone from GitHub
 
 ```bash
@@ -85,25 +105,7 @@ WORDPRESS_PASSWORD=your-app-password
 - Requires Business plan or higher
 - Generate Application Password: Settings → Security → Application Passwords
 
-### MCP Client Setup
 
-Add to your MCP client configuration (e.g., Claude Desktop, Cline):
-
-```json
-{
-  "mcpServers": {
-    "wordpress": {
-      "command": "npx",
-      "args": ["-y", "wpmcp"],
-      "env": {
-        "WORDPRESS_URL": "https://yourblog.com",
-        "WORDPRESS_USERNAME": "admin",
-        "WORDPRESS_PASSWORD": "your-password"
-      }
-    }
-  }
-}
-```
 
 ## Usage
 
