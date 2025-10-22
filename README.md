@@ -5,9 +5,9 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
 [![Node](https://img.shields.io/badge/Node-18%2B-green)](https://nodejs.org/)
 
-A comprehensive Model Context Protocol (MCP) server for WordPress providing **49+ tools** for complete WordPress site management. Built with QuickMCP SDK and TypeScript with enterprise-level organization.
+A MCP server for WordPress providing **49+ tools** for complete WordPress site management. Built with QuickMCP SDK and TypeScript with enterprise-level organization.
 
-**🔗 Repository:** https://github.com/RaheesAhmed/wordpress-mcp-server
+**🔗 QuickMCP SDK Repository: https://github.com/RaheesAhmed/QuickMCP** 
 
 ## 🎯 What This Does
 
