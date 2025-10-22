@@ -180,11 +180,6 @@ npm run lint
 
 MIT License - see [LICENSE](LICENSE)
 
-## Links
-
-- **Repository:** https://github.com/RaheesAhmed/wordpress-mcp-server
-- **Issues:** https://github.com/RaheesAhmed/wordpress-mcp-server/issues
-- **Documentation:** https://github.com/RaheesAhmed/wordpress-mcp-server/wiki
 
 ---
 
