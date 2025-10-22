@@ -1,14 +1,23 @@
 {
-  "name": "wordpress-mcp-server",
-  "version": "1.0.0",
-  "description": "WordPress MCP server with full CRUD operations",
+  "name": "wpmcp",
+  "version": "1.0.3",
+  "description": "MCP server for WordPress with 49+ tools for complete site management through AI",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
+  "bin": {
+    "wordpress-mcp-server": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -16,10 +25,33 @@
     "wordpress",
     "ai",
     "claude",
-    "wpagent"
+    "wpagent",
+    "model-context-protocol",
+    "wordpress-api",
+    "wordpress-rest-api",
+    "wordpress-automation",
+    "ai-agent",
+    "langgraph",
+    "anthropic",
+    "cms",
+    "content-management"
   ],
-  "author": "wpAgent",
+  "author": {
+    "name": "Rahees Ahmed",
+    "url": "https://github.com/RaheesAhmed"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RaheesAhmed/wordpress-mcp-server.git"
+  },
+  "homepage": "https://github.com/RaheesAhmed/wordpress-mcp-server#readme",
+  "bugs": {
+    "url": "https://github.com/RaheesAhmed/wordpress-mcp-server/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "node-fetch": "^3.3.2",
     "quickmcp-sdk": "^1.0.2"

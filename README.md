@@ -1,6 +1,6 @@
 # WordPress MCP Server
 
-A Model Context Protocol server that provides 49+ tools for complete WordPress site management through AI.
+A MCP server that provides 49+ tools for complete WordPress site management through AI.
 
 [![GitHub](https://img.shields.io/badge/GitHub-wordpress--mcp--server-blue?logo=github)](https://github.com/RaheesAhmed/wordpress-mcp-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -33,6 +33,18 @@ This MCP server enables AI agents (Claude, LangGraph, etc.) to manage WordPress 
 | SEO | 2 | set SEO meta (Yoast, Rank Math, AIOSEO), custom meta |
 
 ## Installation
+
+### Option 1: Install from npm (Recommended)
+
+```bash
+# Install globally
+npm i -g wordpress-mcp
+
+# Or use with npx
+npx wordpress-mcp
+```
+
+### Option 2: Clone from GitHub
 
 ```bash
 # Clone repository
@@ -81,8 +93,8 @@ Add to your MCP client configuration (e.g., Claude Desktop, Cline):
 {
   "mcpServers": {
     "wordpress": {
-      "command": "node",
-      "args": ["/path/to/wordpress-mcp-server/dist/index.js"],
+      "command": "npx",
+      "args": ["-y", "wordpress-mcp"],
       "env": {
         "WORDPRESS_URL": "https://yourblog.com",
         "WORDPRESS_USERNAME": "admin",
