@@ -1,6 +1,13 @@
 # wpAgent WordPress MCP Server
 
+[![GitHub](https://img.shields.io/badge/GitHub-RaheesAhmed%2Fwordpress--mcp--server-blue?logo=github)](https://github.com/RaheesAhmed/wordpress-mcp-server)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
+[![Node](https://img.shields.io/badge/Node-18%2B-green)](https://nodejs.org/)
+
 A comprehensive Model Context Protocol (MCP) server for WordPress providing **49+ tools** for complete WordPress site management. Built with QuickMCP SDK and TypeScript with enterprise-level organization.
+
+**🔗 Repository:** https://github.com/RaheesAhmed/wordpress-mcp-server
 
 ## 🎯 What This Does
 
@@ -48,13 +55,20 @@ wpmcp/
 
 ## 🚀 Quick Start
 
-### 1. Install Dependencies
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/RaheesAhmed/wordpress-mcp-server.git
+cd wordpress-mcp-server
+```
+
+### 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 2. Configure WordPress Credentials
+### 3. Configure WordPress Credentials
 
 Copy `.env.example` to `.env`:
 
@@ -79,13 +93,13 @@ WORDPRESS_PASSWORD=xxxx xxxx xxxx xxxx
 2. Create new application password
 3. Use that password in .env
 
-### 3. Build the Server
+### 4. Build the Server
 
 ```bash
 npm run build
 ```
 
-### 4. Run the Server
+### 5. Run the Server
 
 ```bash
 npm start
@@ -572,12 +586,17 @@ npm run build
 
 Contributions welcome! The project is organized for easy extension:
 
-1. Fork the repository
-2. Create feature branch
-3. Add new tools in `src/tools/` directory
-4. Update types in `src/types/wordpress.ts`
-5. Build and test: `npm run build && npm start`
-6. Submit pull request
+1. Fork the repository: https://github.com/RaheesAhmed/wordpress-mcp-server
+2. Clone your fork: `git clone https://github.com/YOUR_USERNAME/wordpress-mcp-server.git`
+3. Create feature branch: `git checkout -b feature/amazing-feature`
+4. Add new tools in `src/tools/` directory
+5. Update types in `src/types/wordpress.ts`
+6. Build and test: `npm run build && npm start`
+7. Commit changes: `git commit -m 'Add amazing feature'`
+8. Push to branch: `git push origin feature/amazing-feature`
+9. Open Pull Request
+
+**Repository:** https://github.com/RaheesAhmed/wordpress-mcp-server
 
 ## 📄 License
 
@@ -585,11 +604,20 @@ MIT License - free to use in your projects!
 
 ## 📚 Resources
 
+- [GitHub Repository](https://github.com/RaheesAhmed/wordpress-mcp-server)
 - [WordPress REST API](https://developer.wordpress.org/rest-api/)
 - [QuickMCP SDK](https://github.com/wong2/quickmcp)
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [LangGraph](https://langchain-ai.github.io/langgraph/)
 
+## 🌟 Show Your Support
+
+Give a ⭐️ if this project helped you!
+
+[![GitHub stars](https://img.shields.io/github/stars/RaheesAhmed/wordpress-mcp-server?style=social)](https://github.com/RaheesAhmed/wordpress-mcp-server)
+
 ---
 
 **Built with ❤️ for AI-powered WordPress automation**
+
+**Repository:** https://github.com/RaheesAhmed/wordpress-mcp-server
