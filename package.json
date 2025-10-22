@@ -1,5 +1,5 @@
 {
-  "name": "wpmcp",
+  "name": "wordpress-mcp-server",
   "version": "1.0.0",
   "description": "WordPress MCP server with full CRUD operations",
   "main": "dist/index.js",
