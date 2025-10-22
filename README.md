@@ -38,10 +38,10 @@ This MCP server enables AI agents (Claude, LangGraph, etc.) to manage WordPress 
 
 ```bash
 # Install globally
-npm i -g wordpress-mcp
+npm i -g wpmcp
 
 # Or use with npx
-npx wordpress-mcp
+npx wpmcp
 ```
 
 ### Option 2: Clone from GitHub
@@ -94,7 +94,7 @@ Add to your MCP client configuration (e.g., Claude Desktop, Cline):
   "mcpServers": {
     "wordpress": {
       "command": "npx",
-      "args": ["-y", "wordpress-mcp"],
+      "args": ["-y", "wpmcp"],
       "env": {
         "WORDPRESS_URL": "https://yourblog.com",
         "WORDPRESS_USERNAME": "admin",
@@ -173,11 +173,6 @@ src/
 # Run in development mode
 npm run dev
 
-# Run tests
-npm test
-
-# Lint
-npm run lint
 ```
 
 ## Contributing
