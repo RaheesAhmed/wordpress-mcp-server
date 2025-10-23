@@ -97,7 +97,7 @@ WORDPRESS_PASSWORD=your-app-password
 
 ### WordPress Authentication
 
-**Self-Hosted WordPress:**
+**Self-Hosted WordPress(localhost):**
 - Install [Basic Auth plugin](https://github.com/WP-API/Basic-Auth)
 - Use your WordPress username and password
 
