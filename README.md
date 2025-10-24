@@ -1,55 +1,33 @@
 # WordPress MCP Server
 
-A MCP server that provides 57+ tools for complete WordPress site management through AI - including secure file system access for theme and plugin customization.
+Enable AI to manage WordPress sites like a professional developer - 80+ tools for complete WordPress control.
 
 [![GitHub](https://img.shields.io/badge/GitHub-wordpress--mcp--server-blue?logo=github)](https://github.com/RaheesAhmed/wordpress-mcp-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
 
-## What This Does
+## What This Is
 
-This MCP server enables AI agents (Claude, LangGraph, etc.) to manage WordPress sites through natural language. It connects to WordPress via REST API and provides specialized tools for posts, pages, media, users, categories, comments, and site settings.
+A Model Context Protocol (MCP) server that gives AI agents complete control over WordPress sites. Connect it to Claude, Cline, or any MCP-compatible AI, and manage WordPress through natural language.
 
-## Features
+**Key Capabilities:**
+- ✅ **Content Management** - Posts, pages, media, users, comments
+- ✅ **File System Access** - Read and write theme/plugin files
+- ✅ **Theme Customization** - Create child themes, modify styles, customize block themes
+- ✅ **Plugin Control** - Activate, deactivate, and modify plugins
+- ✅ **Complete Security** - Multi-layer validation and automatic backups
 
-- **57+ WordPress Tools** - Complete CRUD operations for all WordPress content types
-- **🆕 File System Access** - Read/write theme and plugin files securely
-- **Type Safe** - Full TypeScript implementation
-- **Production Ready** - Proper error handling and validation
-- **Well Organized** - Clean file structure for easy maintenance
-- **Security First** - Built-in validation, backups, and permission checks
+## Quick Start
 
-### Available Tools
-
-| Category | Count | Tools |
-|----------|-------|-------|
-| Posts | 15 | create, update, delete, get, search, schedule, publish, duplicate, revisions, bulk operations |
-| Pages | 4 | create, update, delete, get with hierarchy |
-| Media | 5 | upload, get, update, delete, featured images |
-| Users | 4 | create, get, update, delete |
-| Categories | 4 | create, get, update, delete |
-| Tags | 2 | create, get |
-| Comments | 4 | create, get, update, delete |
-| Settings | 4 | get site info, test connection, get/update settings |
-| Plugins/Themes | 2 | get installed plugins and themes |
-| SEO | 2 | set SEO meta (Yoast, Rank Math, AIOSEO), custom meta |
-| **🆕 File System** | **8** | **read, write, delete, copy, move files, list directories, file info** |
-
-## Installation
-
-### Option 1: Install from npm (Recommended)
+### 1. Install
 
 ```bash
-# Install globally
 npm i -g wpmcp
-
-# Or use with npx
-npx wpmcp
 ```
 
-### MCP Client Setup
+### 2. Configure
 
-Add to your MCP client configuration (e.g., Claude Desktop, Cline):
+Add to your MCP client (Claude Desktop, Cline, etc.):
 
 ```json
 {
@@ -58,16 +36,121 @@ Add to your MCP client configuration (e.g., Claude Desktop, Cline):
       "command": "npx",
       "args": ["-y", "wpmcp"],
       "env": {
-        "WORDPRESS_URL": "https://yourblog.com",
+        "WORDPRESS_URL": "https://your-site.com",
         "WORDPRESS_USERNAME": "admin",
-        "WORDPRESS_PASSWORD": "your-password"
+        "WORDPRESS_PASSWORD": "your-app-password"
       }
     }
   }
 }
 ```
 
-### Option 2: Clone from GitHub
+### 3. Install WordPress Plugin (for file operations)
+
+1. Upload `filesystem-plugin/wpmcp-filesystem.php` to `/wp-content/plugins/`
+2. Activate via WordPress Admin → Plugins
+3. Ensure you have `edit_themes` and `edit_plugins` capabilities
+
+### 4. Use
+
+```
+"Create a child theme called 'My Custom Theme'"
+"Activate Akismet plugin"
+"Read the style.css file from my theme"
+"Create a blog post about WordPress and publish it"
+```
+
+## Available Tools (80+)
+
+| Category | Tools | What You Can Do |
+|----------|-------|-----------------|
+| **Posts** (15) | create, update, delete, search, schedule, publish, duplicate, bulk | Manage all blog content |
+| **Pages** (4) | create, update, delete, hierarchy | Build site structure |
+| **Media** (5) | upload, update, delete, featured images | Manage images and files |
+| **Users** (4) | create, update, delete, roles | User management |
+| **Categories** (4) | create, update, delete, hierarchy | Organize content |
+| **Tags** (2) | create, get | Tag content |
+| **Comments** (4) | create, update, delete, moderate | Manage discussions |
+| **Settings** (4) | get, update site settings | Configure WordPress |
+| **SEO** (2) | meta description, focus keywords | Optimize for search |
+| **File System** (8) | read, write, delete, copy, move | Edit any file |
+| **Theme Manager** (13) | activate, child themes, theme.json, templates | Complete theme control |
+| **Plugin Manager** (10) | activate, deactivate, read/write files | Full plugin control |
+
+## What You Can Do
+
+### Content Management
+```
+"Create a blog post about AI and publish it"
+"Upload an image and set it as featured image for post 5"
+"Get all draft posts"
+"Create a new page called 'About Us'"
+```
+
+### Theme Customization
+```
+"Create a child theme of Twenty Twenty-Five"
+"Read my theme's functions.php file"
+"Add custom CSS to make headers blue"
+"Get the theme.json configuration"
+"List all files in my theme"
+```
+
+### Plugin Management
+```
+"Show me all installed plugins"
+"Activate the Contact Form 7 plugin"
+"Read the main WooCommerce plugin file"
+"Deactivate Hello Dolly"
+"Check if Yoast SEO is installed"
+```
+
+### File Operations
+```
+"Read style.css from my theme"
+"Create a new custom.css file in my theme"
+"Copy functions.php to functions-backup.php"
+"Delete old-template.php with backup"
+```
+
+## Security Features
+
+All operations are secure:
+- ✅ Only allowed directories (themes, plugins, uploads)
+- ✅ Only safe file extensions (.php, .css, .js, etc.)
+- ✅ Malware pattern detection
+- ✅ PHP syntax validation
+- ✅ Automatic backups before changes
+- ✅ WordPress permission system
+- ✅ File size limits (10MB)
+
+## WordPress Authentication
+
+**Self-Hosted WordPress:**
+1. Install [Basic Auth plugin](https://github.com/WP-API/Basic-Auth)
+2. Use your WordPress admin username and password
+
+**WordPress.com:**
+1. Requires Business plan or higher
+2. Generate Application Password in Settings → Security
+
+## Project Structure
+
+```
+src/tools/
+├── posts.ts          # 15 post management tools
+├── pages.ts          # 4 page tools
+├── media.ts          # 5 media tools
+├── filesystem.ts     # 8 file system tools
+├── themes.ts         # 13 theme management tools
+├── plugins.ts        # 10 plugin management tools
+└── all-features.ts   # Users, categories, tags, comments, settings, SEO
+
+filesystem-plugin/
+└── wpmcp-filesystem.php  # Required for file operations
+```
+
+## Development
 
 ```bash
 # Clone repository
@@ -77,10 +160,6 @@ cd wordpress-mcp-server
 # Install dependencies
 npm install
 
-# Configure WordPress credentials
-cp .env.example .env
-# Edit .env with your WordPress URL, username, and password
-
 # Build
 npm run build
 
@@ -88,156 +167,85 @@ npm run build
 npm start
 ```
 
-## Configuration
+## Testing
 
-### Environment Variables
+All features tested on live WordPress:
+- ✅ 21/21 tests passed
+- ✅ File operations working
+- ✅ Theme management verified
+- ✅ Plugin control confirmed
+- ✅ Security validated
 
-```bash
-WORDPRESS_URL=https://yourblog.com
-WORDPRESS_USERNAME=admin
-WORDPRESS_PASSWORD=your-app-password
-```
-
-### WordPress Authentication
-
-**Self-Hosted WordPress(localhost):**
-- Install [Basic Auth plugin](https://github.com/WP-API/Basic-Auth)
-- Use your WordPress username and password
-
-**WordPress.com:**
-- Requires Business plan or higher
-- Generate Application Password: Settings → Security → Application Passwords
-
-### 🆕 File System Plugin (Required for File Operations)
-
-To enable file system operations, install the companion plugin:
-
-1. Copy `wordpress-plugin/wpmcp-filesystem.php` to your WordPress plugins directory
-2. Activate via **WordPress Admin → Plugins → WPMCP File System Manager**
-3. Ensure you have `edit_themes` and `edit_plugins` capabilities
-
-See [`wordpress-plugin/README.md`](./wordpress-plugin/README.md) for detailed installation and security information.
-
-## Usage
-
-Once configured, ask your AI:
-
-**Content Management:**
-```
-"Create a blog post about AI with 1000 words and publish it"
-"Get all draft posts"
-"Upload an image and set it as featured image for post 123"
-"List all WordPress users"
-"Get all installed plugins"
-```
-
-**🆕 File System Operations:**
-```
-"Read the style.css file from my theme"
-"Modify the functions.php file to add a new feature"
-"Create a custom CSS file in my theme"
-"List all files in my plugin directory"
-"Copy my theme's footer.php to footer-backup.php"
-```
+See [`IMPLEMENTATION_SUMMARY.md`](./IMPLEMENTATION_SUMMARY.md) for test details.
 
 ## API Examples
 
 ### Create Post
-
 ```typescript
 {
-  "title": "My Post Title",
-  "content": "<p>Post content</p>",
-  "status": "publish",
-  "categories": [1],
-  "tags": [2, 3]
+  "title": "My Post",
+  "content": "<p>Content here</p>",
+  "status": "publish"
 }
 ```
 
-### Upload Media
-
+### Create Child Theme
 ```typescript
 {
-  "fileBase64": "base64-encoded-file-content",
-  "filename": "image.jpg",
-  "altText": "Image description"
+  "parentTheme": "twentytwentyfive",
+  "childName": "My Custom Theme"
 }
 ```
 
-### Create User
-
+### Activate Plugin
 ```typescript
 {
-  "username": "johndoe",
-  "email": "john@example.com",
-  "password": "SecurePass123",
-  "roles": ["author"]
+  "plugin": "akismet/akismet"
 }
 ```
 
-### 🆕 Read Theme File
-
+### Read Theme File
 ```typescript
 {
-  "path": "wp-content/themes/twentytwentyfour/style.css"
+  "theme": "mytheme",
+  "filePath": "functions.php"
 }
 ```
 
-### 🆕 Write File (with Backup)
-
+### Write File
 ```typescript
 {
   "path": "wp-content/themes/mytheme/custom.css",
-  "content": "/* Custom styles */\n.my-class { color: blue; }",
+  "content": "/* Custom styles */",
   "createBackup": true
 }
 ```
 
-### 🆕 List Plugin Files
+## Roadmap
 
-```typescript
-{
-  "path": "wp-content/plugins/myplugin/",
-  "recursive": true
-}
-```
+**Current:** 80/200 tools (40% complete)
 
-## Project Structure
+- ✅ **Phase 1:** File System Operations
+- ✅ **Phase 2:** Theme & Plugin Management
+- 📅 **Phase 3:** Database, Menus, Custom Post Types
+- 📅 **Phase 4:** WooCommerce, Gutenberg Blocks
+- 📅 **Phase 5:** Security, Performance, Backups
+- 📅 **Phase 6:** WP-CLI, Debugging, i18n
 
-```
-src/
-├── index.ts              # Server entry point
-├── config/               # Configuration
-├── types/                # TypeScript definitions
-├── utils/                # API wrapper and helpers
-└── tools/                # WordPress tool implementations
-    ├── posts.ts          # 15 post tools
-    ├── pages.ts          # 4 page tools
-    ├── media.ts          # 5 media tools
-    └── all-features.ts   # Additional tools
-```
-
-## Development
-
-```bash
-# Run in development mode
-npm run dev
-
-```
+See [`FEATURE_GAP_ANALYSIS.md`](./FEATURE_GAP_ANALYSIS.md) for complete roadmap.
 
 ## Contributing
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing`)
-3. Commit your changes (`git commit -m 'Add feature'`)
-4. Push to branch (`git push origin feature/amazing`)
-5. Open a Pull Request
+2. Create feature branch (`git checkout -b feature/name`)
+3. Commit changes (`git commit -m 'Add feature'`)
+4. Push to branch (`git push origin feature/name`)
+5. Open Pull Request
 
 ## License
 
 MIT License - see [LICENSE](LICENSE)
 
-
 ---
 
-**Built for AI-powered WordPress automation**
+**Built for AI-powered WordPress development** 🚀
