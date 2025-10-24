@@ -1,6 +1,6 @@
 # WordPress MCP Server
 
-A MCP server that provides 49+ tools for complete WordPress site management through AI.
+A MCP server that provides 57+ tools for complete WordPress site management through AI - including secure file system access for theme and plugin customization.
 
 [![GitHub](https://img.shields.io/badge/GitHub-wordpress--mcp--server-blue?logo=github)](https://github.com/RaheesAhmed/wordpress-mcp-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -12,10 +12,12 @@ This MCP server enables AI agents (Claude, LangGraph, etc.) to manage WordPress 
 
 ## Features
 
-- **49+ WordPress Tools** - Complete CRUD operations for all WordPress content types
+- **57+ WordPress Tools** - Complete CRUD operations for all WordPress content types
+- **🆕 File System Access** - Read/write theme and plugin files securely
 - **Type Safe** - Full TypeScript implementation
 - **Production Ready** - Proper error handling and validation
 - **Well Organized** - Clean file structure for easy maintenance
+- **Security First** - Built-in validation, backups, and permission checks
 
 ### Available Tools
 
@@ -31,6 +33,7 @@ This MCP server enables AI agents (Claude, LangGraph, etc.) to manage WordPress 
 | Settings | 4 | get site info, test connection, get/update settings |
 | Plugins/Themes | 2 | get installed plugins and themes |
 | SEO | 2 | set SEO meta (Yoast, Rank Math, AIOSEO), custom meta |
+| **🆕 File System** | **8** | **read, write, delete, copy, move files, list directories, file info** |
 
 ## Installation
 
@@ -105,18 +108,36 @@ WORDPRESS_PASSWORD=your-app-password
 - Requires Business plan or higher
 - Generate Application Password: Settings → Security → Application Passwords
 
+### 🆕 File System Plugin (Required for File Operations)
 
+To enable file system operations, install the companion plugin:
+
+1. Copy `wordpress-plugin/wpmcp-filesystem.php` to your WordPress plugins directory
+2. Activate via **WordPress Admin → Plugins → WPMCP File System Manager**
+3. Ensure you have `edit_themes` and `edit_plugins` capabilities
+
+See [`wordpress-plugin/README.md`](./wordpress-plugin/README.md) for detailed installation and security information.
 
 ## Usage
 
 Once configured, ask your AI:
 
+**Content Management:**
 ```
 "Create a blog post about AI with 1000 words and publish it"
 "Get all draft posts"
 "Upload an image and set it as featured image for post 123"
 "List all WordPress users"
 "Get all installed plugins"
+```
+
+**🆕 File System Operations:**
+```
+"Read the style.css file from my theme"
+"Modify the functions.php file to add a new feature"
+"Create a custom CSS file in my theme"
+"List all files in my plugin directory"
+"Copy my theme's footer.php to footer-backup.php"
 ```
 
 ## API Examples
@@ -151,6 +172,33 @@ Once configured, ask your AI:
   "email": "john@example.com",
   "password": "SecurePass123",
   "roles": ["author"]
+}
+```
+
+### 🆕 Read Theme File
+
+```typescript
+{
+  "path": "wp-content/themes/twentytwentyfour/style.css"
+}
+```
+
+### 🆕 Write File (with Backup)
+
+```typescript
+{
+  "path": "wp-content/themes/mytheme/custom.css",
+  "content": "/* Custom styles */\n.my-class { color: blue; }",
+  "createBackup": true
+}
+```
+
+### 🆕 List Plugin Files
+
+```typescript
+{
+  "path": "wp-content/plugins/myplugin/",
+  "recursive": true
 }
 ```
 

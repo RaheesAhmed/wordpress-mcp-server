@@ -28,3 +28,9 @@ Thumbs.db
 
 # TypeScript
 *.tsbuildinfo
+
+ARCHITECTURE_DESIGN.md
+FEATURE_GAP_ANALYSIS.md
+IMPLEMENTATION_SUMMARY.md
+RECOMMENDATIONS.md
+QuickMCP.md

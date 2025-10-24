@@ -16,6 +16,7 @@ import { registerPostTools } from './tools/posts.js';
 import { registerPageTools } from './tools/pages.js';
 import { registerMediaTools } from './tools/media.js';
 import { registerAllFeatureTools } from './tools/all-features.js';
+import { registerFileSystemTools } from './tools/filesystem.js';
 
 // Validate configuration
 config.validate();
@@ -45,9 +46,12 @@ console.log('  ✅ Media (5 tools)');
 registerAllFeatureTools(server);
 console.log('  ✅ Users, Taxonomy, Comments, Site, SEO (25+ tools)');
 
+registerFileSystemTools(server);
+console.log('  ✅ File System (8 tools) - NEW!');
+
 console.log('');
 console.log('✅ WordPress MCP Server initialized');
-console.log(`📋 Total: 49+ WordPress management tools loaded`);
+console.log(`📋 Total: 57+ WordPress management tools loaded`);
 console.log('');
 console.log('🔧 Available Feature Categories:');
 console.log('  📝 Posts: create, update, delete, publish, schedule, search, duplicate, revisions, bulk operations');
@@ -62,6 +66,7 @@ console.log('  🔌 Plugins: list installed plugins');
 console.log('  🎨 Themes: list installed themes');
 console.log('  🔍 SEO: Yoast, Rank Math, All-in-One SEO support');
 console.log('  🛠️  Site Management: info, connection test, custom meta');
+console.log('  📁 File System (NEW): read, write, delete, copy, move files - secure theme/plugin editing');
 console.log('');
 console.log('🔗 Listening for MCP requests...');
 

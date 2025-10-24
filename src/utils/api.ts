@@ -64,6 +64,43 @@ export async function callWordPressRootAPI(): Promise<any> {
 }
 
 /**
+ * Call custom WordPress REST API endpoint (with custom namespace)
+ * @param fullEndpoint - Complete endpoint path (e.g., '/wp-json/wpmcp/v1/file/read')
+ * @param method - HTTP method (GET, POST, PUT, DELETE)
+ * @param body - Request body for POST/PUT requests
+ * @returns API response data
+ */
+export async function callCustomAPI(
+  fullEndpoint: string,
+  method: string = 'GET',
+  body?: any
+): Promise<any> {
+  // Remove leading slash if present
+  const cleanEndpoint = fullEndpoint.startsWith('/') ? fullEndpoint.slice(1) : fullEndpoint;
+  const url = `${config.url}/${cleanEndpoint}`;
+  
+  try {
+    const response = await fetch(url, {
+      method,
+      headers: {
+        'Authorization': `Basic ${config.getAuthToken()}`,
+        'Content-Type': 'application/json',
+      },
+      body: body ? JSON.stringify(body) : undefined,
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`WordPress API error: ${response.status} ${response.statusText} - ${errorText}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    throw new Error(`Failed to call WordPress API: ${(error as Error).message}`);
+  }
+}
+
+/**
  * Upload media file to WordPress
  * @param fileBase64 - Base64 encoded file
  * @param filename - File name
