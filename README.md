@@ -1,6 +1,6 @@
 # WordPress MCP Server
 
-Enable AI to manage WordPress sites like a professional developer - 88+ tools for complete WordPress control.
+Enable AI to manage WordPress sites like a professional developer - 95+ tools for complete WordPress control.
 
 [![GitHub](https://img.shields.io/badge/GitHub-wordpress--mcp--server-blue?logo=github)](https://github.com/RaheesAhmed/wordpress-mcp-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -16,6 +16,7 @@ A Model Context Protocol (MCP) server that gives AI agents complete control over
 - ✅ **Theme Customization** - Create child themes, modify styles, customize block themes
 - ✅ **Plugin Control** - Activate, deactivate, and modify plugins
 - ✅ **Menu Management** - Create menus, add items, assign to locations
+- ✅ **Custom Content Types** - Manage post types and taxonomies
 - ✅ **Complete Security** - Multi-layer validation and automatic backups
 
 ## Quick Start
@@ -61,7 +62,7 @@ Add to your MCP client (Claude Desktop, Cline, etc.):
 "Create a blog post about WordPress and publish it"
 ```
 
-## Available Tools (88+)
+## Available Tools (95+)
 
 | Category | Tools | What You Can Do |
 |----------|-------|-----------------|
@@ -78,6 +79,7 @@ Add to your MCP client (Claude Desktop, Cline, etc.):
 | **Theme Manager** (13) | activate, child themes, theme.json, templates | Complete theme control |
 | **Plugin Manager** (10) | activate, deactivate, read/write files | Full plugin control |
 | **Menu Manager** (8) | create, add items, assign locations | Full navigation control |
+| **Custom Types** (7) | get post types, taxonomies, manage terms | Advanced content types |
 
 ## What You Can Do
 
@@ -139,6 +141,15 @@ Add to your MCP client (Claude Desktop, Cline, etc.):
 "Get all registered menu locations"
 "Assign the Main Navigation menu to primary location"
 "Show me all menu items in the Main menu"
+```
+
+### Custom Post Types & Taxonomies
+```
+"Show me all registered post types"
+"Get details for the 'page' post type"
+"Get all taxonomies"
+"Show me all categories"
+"Create a new category called 'Technology'"
 ```
 
 ### File Operations
@@ -259,15 +270,17 @@ All features tested on live WordPress:
 
 ## Roadmap
 
-**Current:** 88/200 tools (44% complete)
+**Current:** 95/200 tools (47.5% complete)
 
 - ✅ **Phase 1:** File System Operations (8 tools)
 - ✅ **Phase 2:** Theme & Plugin Management (23 tools)
-- ✅ **Phase 3 (Partial):** Menu Management (8 tools)
-- 📅 **Phase 3 (Remaining):** Custom Post Types, Shortcodes, Cron, Widgets
-- 📅 **Phase 4:** WooCommerce, Gutenberg Blocks
-- 📅 **Phase 5:** Security, Performance, Backups
-- 📅 **Phase 6:** WP-CLI, Debugging, i18n
+- ✅ **Phase 3 (Partial):** Menus & Custom Post Types (15 tools)
+- 📅 **Phase 3 (Remaining):** Shortcodes, Cron, Widgets (20 tools)
+- 📅 **Phase 4:** WooCommerce, Gutenberg Blocks (27 tools)
+- 📅 **Phase 5:** Security, Performance, Backups (33 tools)
+- 📅 **Phase 6:** WP-CLI, Debugging, i18n (40 tools)
+
+**Progress:** Nearly half way to complete WordPress developer replacement!
 
 See [`FEATURE_GAP_ANALYSIS.md`](./FEATURE_GAP_ANALYSIS.md) for complete roadmap.
 

@@ -20,6 +20,7 @@ import { registerFileSystemTools } from './tools/filesystem.js';
 import { registerThemeTools } from './tools/themes.js';
 import { registerPluginTools } from './tools/plugins.js';
 import { registerMenuTools } from './tools/menus.js';
+import { registerCustomPostTypeTools } from './tools/custom-post-types.js';
 
 // Validate configuration
 config.validate();
@@ -59,11 +60,14 @@ registerPluginTools(server);
 console.log('  ✅ Plugin Management (10 tools)');
 
 registerMenuTools(server);
-console.log('  ✅ Menu Management (8 tools) - NEW!');
+console.log('  ✅ Menu Management (8 tools)');
+
+registerCustomPostTypeTools(server);
+console.log('  ✅ Custom Post Types & Taxonomies (7 tools) - NEW!');
 
 console.log('');
 console.log('✅ WordPress MCP Server initialized');
-console.log(`📋 Total: 88+ WordPress management tools loaded`);
+console.log(`📋 Total: 95+ WordPress management tools loaded`);
 console.log('');
 console.log('🔧 Available Feature Categories:');
 console.log('  📝 Posts: create, update, delete, publish, schedule, search, duplicate, revisions, bulk operations');
@@ -81,7 +85,8 @@ console.log('  🛠️  Site Management: info, connection test, custom meta');
 console.log('  📁 File System: read, write, delete, copy, move files - secure theme/plugin editing');
 console.log('  🎨 Theme Manager: activate, create child themes, modify theme.json, read/write theme files');
 console.log('  🔌 Plugin Manager: activate, deactivate, delete, read/write plugin files, status checks');
-console.log('  🧭 Menu Manager (NEW): create menus, add items, assign to locations, full navigation control');
+console.log('  🧭 Menu Manager: create menus, add items, assign to locations, full navigation control');
+console.log('  📋 Custom Post Types (NEW): get post types, taxonomies, create/update terms');
 console.log('');
 console.log('🔗 Listening for MCP requests...');
 
