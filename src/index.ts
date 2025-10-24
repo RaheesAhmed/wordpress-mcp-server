@@ -17,6 +17,8 @@ import { registerPageTools } from './tools/pages.js';
 import { registerMediaTools } from './tools/media.js';
 import { registerAllFeatureTools } from './tools/all-features.js';
 import { registerFileSystemTools } from './tools/filesystem.js';
+import { registerThemeTools } from './tools/themes.js';
+import { registerPluginTools } from './tools/plugins.js';
 
 // Validate configuration
 config.validate();
@@ -47,11 +49,17 @@ registerAllFeatureTools(server);
 console.log('  ✅ Users, Taxonomy, Comments, Site, SEO (25+ tools)');
 
 registerFileSystemTools(server);
-console.log('  ✅ File System (8 tools) - NEW!');
+console.log('  ✅ File System (8 tools)');
+
+registerThemeTools(server);
+console.log('  ✅ Theme Management (13 tools)');
+
+registerPluginTools(server);
+console.log('  ✅ Plugin Management (10 tools) - NEW!');
 
 console.log('');
 console.log('✅ WordPress MCP Server initialized');
-console.log(`📋 Total: 57+ WordPress management tools loaded`);
+console.log(`📋 Total: 80+ WordPress management tools loaded`);
 console.log('');
 console.log('🔧 Available Feature Categories:');
 console.log('  📝 Posts: create, update, delete, publish, schedule, search, duplicate, revisions, bulk operations');
@@ -66,7 +74,9 @@ console.log('  🔌 Plugins: list installed plugins');
 console.log('  🎨 Themes: list installed themes');
 console.log('  🔍 SEO: Yoast, Rank Math, All-in-One SEO support');
 console.log('  🛠️  Site Management: info, connection test, custom meta');
-console.log('  📁 File System (NEW): read, write, delete, copy, move files - secure theme/plugin editing');
+console.log('  📁 File System: read, write, delete, copy, move files - secure theme/plugin editing');
+console.log('  🎨 Theme Manager: activate, create child themes, modify theme.json, read/write theme files');
+console.log('  🔌 Plugin Manager (NEW): activate, deactivate, delete, read/write plugin files, status checks');
 console.log('');
 console.log('🔗 Listening for MCP requests...');
 
