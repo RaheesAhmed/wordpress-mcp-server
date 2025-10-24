@@ -1,6 +1,6 @@
 # WordPress MCP Server
 
-Enable AI to manage WordPress sites like a professional developer - 80+ tools for complete WordPress control.
+Enable AI to manage WordPress sites like a professional developer - 88+ tools for complete WordPress control.
 
 [![GitHub](https://img.shields.io/badge/GitHub-wordpress--mcp--server-blue?logo=github)](https://github.com/RaheesAhmed/wordpress-mcp-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -15,6 +15,7 @@ A Model Context Protocol (MCP) server that gives AI agents complete control over
 - ✅ **File System Access** - Read and write theme/plugin files
 - ✅ **Theme Customization** - Create child themes, modify styles, customize block themes
 - ✅ **Plugin Control** - Activate, deactivate, and modify plugins
+- ✅ **Menu Management** - Create menus, add items, assign to locations
 - ✅ **Complete Security** - Multi-layer validation and automatic backups
 
 ## Quick Start
@@ -60,7 +61,7 @@ Add to your MCP client (Claude Desktop, Cline, etc.):
 "Create a blog post about WordPress and publish it"
 ```
 
-## Available Tools (80+)
+## Available Tools (88+)
 
 | Category | Tools | What You Can Do |
 |----------|-------|-----------------|
@@ -76,6 +77,7 @@ Add to your MCP client (Claude Desktop, Cline, etc.):
 | **File System** (8) | read, write, delete, copy, move | Edit any file |
 | **Theme Manager** (13) | activate, child themes, theme.json, templates | Complete theme control |
 | **Plugin Manager** (10) | activate, deactivate, read/write files | Full plugin control |
+| **Menu Manager** (8) | create, add items, assign locations | Full navigation control |
 
 ## What You Can Do
 
@@ -96,6 +98,31 @@ Add to your MCP client (Claude Desktop, Cline, etc.):
 "List all files in my theme"
 ```
 
+### Menu Management Examples
+```typescript
+// Create menu
+{
+  "name": "Main Navigation",
+  "description": "Primary site menu"
+}
+
+// Add menu item
+{
+  "title": "Home",
+  "url": "https://yoursite.com",
+  "menus": 3
+}
+
+// Get menu locations
+// No parameters needed
+
+// Assign menu to location
+{
+  "location": "primary",
+  "menuId": 3
+}
+```
+
 ### Plugin Management
 ```
 "Show me all installed plugins"
@@ -103,6 +130,15 @@ Add to your MCP client (Claude Desktop, Cline, etc.):
 "Read the main WooCommerce plugin file"
 "Deactivate Hello Dolly"
 "Check if Yoast SEO is installed"
+```
+
+### Menu Management
+```
+"Create a new menu called 'Main Navigation'"
+"Add a Home link to the menu"
+"Get all registered menu locations"
+"Assign the Main Navigation menu to primary location"
+"Show me all menu items in the Main menu"
 ```
 
 ### File Operations
@@ -144,6 +180,7 @@ src/tools/
 ├── filesystem.ts     # 8 file system tools
 ├── themes.ts         # 13 theme management tools
 ├── plugins.ts        # 10 plugin management tools
+├── menus.ts          # 8 menu management tools
 └── all-features.ts   # Users, categories, tags, comments, settings, SEO
 
 filesystem-plugin/
@@ -176,7 +213,6 @@ All features tested on live WordPress:
 - ✅ Plugin control confirmed
 - ✅ Security validated
 
-See [`IMPLEMENTATION_SUMMARY.md`](./IMPLEMENTATION_SUMMARY.md) for test details.
 
 ## API Examples
 
@@ -223,11 +259,12 @@ See [`IMPLEMENTATION_SUMMARY.md`](./IMPLEMENTATION_SUMMARY.md) for test details.
 
 ## Roadmap
 
-**Current:** 80/200 tools (40% complete)
+**Current:** 88/200 tools (44% complete)
 
-- ✅ **Phase 1:** File System Operations
-- ✅ **Phase 2:** Theme & Plugin Management
-- 📅 **Phase 3:** Database, Menus, Custom Post Types
+- ✅ **Phase 1:** File System Operations (8 tools)
+- ✅ **Phase 2:** Theme & Plugin Management (23 tools)
+- ✅ **Phase 3 (Partial):** Menu Management (8 tools)
+- 📅 **Phase 3 (Remaining):** Custom Post Types, Shortcodes, Cron, Widgets
 - 📅 **Phase 4:** WooCommerce, Gutenberg Blocks
 - 📅 **Phase 5:** Security, Performance, Backups
 - 📅 **Phase 6:** WP-CLI, Debugging, i18n
