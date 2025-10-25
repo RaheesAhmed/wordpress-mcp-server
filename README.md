@@ -22,8 +22,11 @@ A Model Context Protocol (MCP) server that gives AI agents complete control over
 - ✅ **Database Operations** - Execute queries, manage options, inspect tables
 - ✅ **WooCommerce Integration** - Products, orders, customers, inventory, reports
 - ✅ **Gutenberg Blocks** - Block types, patterns, reusable blocks, templates
+- ✅ **Advanced SEO** - Sitemaps, redirects, schema markup, Open Graph, analysis
 - ✅ **Security Monitoring** - Site health, updates, integrity checks, debug logs
 - ✅ **Performance Optimization** - Cache management, database optimization, image processing
+- ✅ **Backup & Migration** - Full/partial backups, restore, export/import, cloning
+- ✅ **User Roles** - Custom roles, capabilities, permissions, role management
 - ✅ **Complete Security** - Multi-layer validation and automatic backups
 
 ## Quick Start
@@ -56,7 +59,7 @@ Add to your MCP client (Claude Desktop, Cline, etc.):
 
 ### 3. Install WordPress Plugin (Required)
 
-1. Upload `wpmcp-plugin/wpmcp-plugin.php` to `/wp-content/plugins/wpmcp-plugin/`
+1. Install `wpmcp-plugin/wpmcp.zip` to `/wp-content/plugins/wpmcp-plugin/`
 2. Activate via WordPress Admin → Plugins → "WordPress MCP Server Plugin"
 3. Ensure you have `edit_themes` and `edit_plugins` capabilities
 

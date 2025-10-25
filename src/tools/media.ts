@@ -3,7 +3,7 @@
  */
 
 import { Responses } from 'quickmcp-sdk';
-import { callWordPressAPI, uploadMediaFile } from '../utils/api.js';
+import { callWordPressAPI, uploadMediaFile, callCustomAPI } from '../utils/api.js';
 import { formatMedia, buildQueryString } from '../utils/helpers.js';
 
 export function registerMediaTools(server: any) {
@@ -98,5 +98,133 @@ export function registerMediaTools(server: any) {
   }, {
     description: 'Set featured image (thumbnail) for a post',
     schema: { postId: 'number', mediaId: 'number' }
+  });
+  
+  // ========== ADVANCED MEDIA TOOLS ==========
+  
+  /**
+   * Bulk optimize images
+   */
+  server.tool('wordpress_bulk_optimize_images', async (args: any) => {
+    const { limit = 10 } = args || {};
+    
+    try {
+      const result = await callCustomAPI('wp-json/wpmcp/v1/media/optimize-bulk', 'POST', { limit });
+      
+      return Responses.success(
+        {
+          optimized: result.count || 0,
+          savedSpace: result.saved || '0 MB'
+        },
+        `✅ Optimized ${result.count || 0} images`
+      );
+    } catch (error) {
+      return Responses.error(`Failed to optimize images: ${(error as Error).message}`);
+    }
+  }, {
+    description: 'Bulk optimize images (compress all images)',
+    schema: {}
+  });
+  
+  /**
+   * Convert images to WebP
+   */
+  server.tool('wordpress_convert_to_webp', async (args: any) => {
+    const { mediaId } = args;
+    
+    try {
+      const result = await callCustomAPI('wp-json/wpmcp/v1/media/convert-webp', 'POST', { mediaId });
+      
+      return Responses.success(
+        {
+          mediaId,
+          webpUrl: result.url || '',
+          converted: true
+        },
+        `✅ Converted image ${mediaId} to WebP`
+      );
+    } catch (error) {
+      return Responses.error(`Failed to convert to WebP: ${(error as Error).message}`);
+    }
+  }, {
+    description: 'Convert image to WebP format',
+    schema: {
+      mediaId: 'number'
+    }
+  });
+  
+  /**
+   * Find unused media
+   */
+  server.tool('wordpress_get_unused_media', async (args: any) => {
+    const { limit = 50 } = args || {};
+    
+    try {
+      const result = await callCustomAPI('wp-json/wpmcp/v1/media/unused', 'GET');
+      
+      return Responses.success(
+        {
+          unusedMedia: (result.media || []).slice(0, limit),
+          total: result.total || 0
+        },
+        `📊 Found ${result.total || 0} unused media files`
+      );
+    } catch (error) {
+      return Responses.error(`Failed to find unused media: ${(error as Error).message}`);
+    }
+  }, {
+    description: 'Find unused media files in library',
+    schema: {}
+  });
+  
+  /**
+   * Bulk delete media
+   */
+  server.tool('wordpress_bulk_delete_media', async (args: any) => {
+    const { mediaIds } = args;
+    
+    try {
+      const results = await Promise.all(
+        mediaIds.map((id: number) => callWordPressAPI(`/media/${id}?force=true`, 'DELETE'))
+      );
+      
+      return Responses.success(
+        {
+          deleted: results.length,
+          mediaIds
+        },
+        `✅ Deleted ${results.length} media files`
+      );
+    } catch (error) {
+      return Responses.error(`Failed to bulk delete: ${(error as Error).message}`);
+    }
+  }, {
+    description: 'Delete multiple media files',
+    schema: {
+      mediaIds: 'array'
+    }
+  });
+  
+  /**
+   * Get media storage analytics
+   */
+  server.tool('wordpress_get_media_analytics', async () => {
+    try {
+      const result = await callCustomAPI('wp-json/wpmcp/v1/media/analytics', 'GET');
+      
+      return Responses.success(
+        {
+          totalFiles: result.total || 0,
+          totalSize: result.size || '0 MB',
+          byType: result.byType || {}
+        },
+        `📊 Media analytics retrieved`
+      );
+    } catch (error) {
+      return Responses.error(`Failed to get analytics: ${(error as Error).message}`);
+    }
+  }, {
+    description: 'Get media library storage usage statistics',
+    schema: {}
   });
 }

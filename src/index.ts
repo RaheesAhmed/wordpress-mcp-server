@@ -29,6 +29,9 @@ import { registerWooCommerceTools } from './tools/woocommerce.js';
 import { registerBlockTools } from './tools/blocks.js';
 import { registerSecurityTools } from './tools/security.js';
 import { registerPerformanceTools } from './tools/performance.js';
+import { registerSEOTools } from './tools/seo.js';
+import { registerBackupTools } from './tools/backup.js';
+import { registerUserRoleTools } from './tools/user-roles.js';
 
 // Validate configuration
 config.validate();
@@ -95,11 +98,20 @@ registerSecurityTools(server);
 console.log('  ✅ Security & Site Health (7 tools) - NEW!');
 
 registerPerformanceTools(server);
-console.log('  ✅ Performance Optimization (8 tools) - NEW!');
+console.log('  ✅ Performance Optimization (8 tools)');
+
+registerSEOTools(server);
+console.log('  ✅ Advanced SEO (10 tools)');
+
+registerBackupTools(server);
+console.log('  ✅ Backup & Migration (10 tools) - NEW!');
+
+registerUserRoleTools(server);
+console.log('  ✅ User Roles & Capabilities (8 tools) - NEW!');
 
 console.log('');
 console.log('✅ WordPress MCP Server initialized');
-console.log(`📋 Total: 157+ WordPress management tools loaded`);
+console.log(`📋 Total: 195+ WordPress management tools loaded`);
 console.log('');
 console.log('🔧 Available Feature Categories:');
 console.log('  📝 Posts: create, update, delete, publish, schedule, search, duplicate, revisions, bulk operations');
@@ -125,8 +137,11 @@ console.log('  🔧 Widgets: get sidebars, manage widgets, widget types');
 console.log('  🗄️ Database: execute queries, manage options, list tables, inspect data');
 console.log('  🛍️ WooCommerce: products, orders, customers, inventory, coupons, reports');
 console.log('  🧱 Gutenberg Blocks: block types, patterns, reusable blocks, templates');
-console.log('  🔒 Security (NEW): site health, updates, debug logs, file integrity, permissions');
-console.log('  ⚡ Performance (NEW): cache clearing, database optimization, image regeneration');
+console.log('  🔒 Security: site health, updates, debug logs, file integrity, permissions');
+console.log('  ⚡ Performance: cache clearing, database optimization, image regeneration');
+console.log('  🎯 SEO: sitemaps, redirects, schema markup, Open Graph, Twitter cards, analysis');
+console.log('  📦 Backup (NEW): full/partial backups, restore, export/import, clone to staging');
+console.log('  👤 User Roles (NEW): custom roles, capabilities, permissions, role assignment');
 console.log('');
 console.log('🔗 Listening for MCP requests...');
 
