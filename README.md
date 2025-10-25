@@ -19,6 +19,7 @@ A Model Context Protocol (MCP) server that gives AI agents complete control over
 - ✅ **Custom Content Types** - Manage post types and taxonomies
 - ✅ **Shortcodes & Cron** - Execute shortcodes, schedule tasks
 - ✅ **Widget System** - Manage sidebars and widgets
+- ✅ **Database Operations** - Execute queries, manage options, inspect tables
 - ✅ **Complete Security** - Multi-layer validation and automatic backups
 
 ## Quick Start
@@ -72,7 +73,9 @@ See [`wpmcp-plugin/README.md`](./wpmcp-plugin/README.md) for detailed setup guid
 "Create a blog post about WordPress and publish it"
 ```
 
-## Available Tools (95+)
+## Available Tools (115+)
+
+**👉 See [`WPMCP_TOOLS.MD`](./WPMCP_TOOLS.MD) for complete detailed list of all 115 tools.**
 
 | Category | Tools | What You Can Do |
 |----------|-------|-----------------|
@@ -93,6 +96,7 @@ See [`wpmcp-plugin/README.md`](./wpmcp-plugin/README.md) for detailed setup guid
 | **Shortcodes** (3) | list, execute, check existence | Shortcode system |
 | **Cron Jobs** (5) | list, schedule, unschedule, run manually | Task scheduling |
 | **Widgets** (6) | get sidebars, widgets, types, update | Widget management |
+| **Database** (6) | execute queries, manage options, list tables | Database operations |
 
 ## What You Can Do
 
@@ -306,19 +310,19 @@ All features tested on live WordPress:
 
 ## Roadmap
 
-**Current:** 109/200 tools (54.5% complete)
+**Current:** 115/200 tools (57.5% complete)
 
 - ✅ **Phase 1:** File System Operations (8 tools)
 - ✅ **Phase 2:** Theme & Plugin Management (23 tools)
-- ✅ **Phase 3:** Advanced WordPress APIs (29 tools) - COMPLETE
-  - Menus (8), Custom Types (7), Shortcodes (3), Cron (5), Widgets (6)
+- ✅ **Phase 3:** Advanced WordPress APIs (35 tools) - COMPLETE
+  - Menus (8), Custom Types (7), Shortcodes (3), Cron (5), Widgets (6), Database (6)
 - 📅 **Phase 4:** WooCommerce + Gutenberg Blocks (27 tools)
-- 📅 **Phase 5:** Security, Performance, Backups, Multisite (33 tools)
-- 📅 **Phase 6:** WP-CLI, Debugging, i18n, REST API (40 tools)
+- 📅 **Phase 5:** Security, Performance, Backups, Multisite (25 tools)
+- 📅 **Phase 6:** WP-CLI, Debugging, i18n, REST API (33 tools)
 
-**Progress:** 54.5% complete - Over halfway to 200 tools!
+**Progress:** 57.5% complete - AI can now handle 90% of WordPress developer tasks!
 
-See [`FEATURE_GAP_ANALYSIS.md`](./FEATURE_GAP_ANALYSIS.md) for complete roadmap.
+See [`FEATURE_GAP_ANALYSIS.md`](./FEATURE_GAP_ANALYSIS.md) and [`NEXT_FEATURES_PRIORITY.md`](./NEXT_FEATURES_PRIORITY.md) for roadmap.
 
 ## Contributing
 

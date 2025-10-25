@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WordPress MCP Server Plugin
  * Plugin URI: https://github.com/RaheesAhmed/wordpress-mcp-server
- * Description: Complete WordPress control for MCP Server - File System, Shortcodes, Cron Jobs, and Widgets
+ * Description: Complete WordPress control for MCP Server - File System, Shortcodes, Cron Jobs, Database Operations
  * Version: 2.0.0
  * Author: WPMCP
  * Author URI: https://github.com/RaheesAhmed
@@ -31,7 +31,7 @@ class WPMCP_Plugin {
         'svg', 'jpg', 'jpeg', 'png', 'gif', 'webp'
     ];
     
-    private $max_file_size = 10485760; // 10MB
+    private $max_file_size = 10485760;
     private $backup_dir = 'wp-content/wpmcp-backups';
     
     public function __construct() {
@@ -39,15 +39,10 @@ class WPMCP_Plugin {
         $this->ensure_backup_dir();
     }
     
-    /**
-     * Ensure backup directory exists
-     */
     private function ensure_backup_dir() {
         $backup_path = ABSPATH . $this->backup_dir;
         if (!file_exists($backup_path)) {
             wp_mkdir_p($backup_path);
-            
-            // Protect backups
             $htaccess = $backup_path . '/.htaccess';
             if (!file_exists($htaccess)) {
                 file_put_contents($htaccess, "Deny from all\n");
@@ -55,13 +50,9 @@ class WPMCP_Plugin {
         }
     }
     
-    /**
-     * Register REST API routes
-     */
     public function register_routes() {
         $namespace = 'wpmcp/v1';
         
-        // File System Routes
         register_rest_route($namespace, '/file/read', [
             'methods' => 'POST',
             'callback' => [$this, 'read_file'],
@@ -104,7 +95,6 @@ class WPMCP_Plugin {
             'permission_callback' => [$this, 'check_file_permissions']
         ]);
         
-        // Shortcode Routes
         register_rest_route($namespace, '/shortcodes/list', [
             'methods' => 'GET',
             'callback' => [$this, 'list_shortcodes'],
@@ -117,7 +107,6 @@ class WPMCP_Plugin {
             'permission_callback' => [$this, 'check_admin_permissions']
         ]);
         
-        // Cron Routes
         register_rest_route($namespace, '/cron/list', [
             'methods' => 'GET',
             'callback' => [$this, 'list_cron_jobs'],
@@ -141,9 +130,31 @@ class WPMCP_Plugin {
             'callback' => [$this, 'run_cron'],
             'permission_callback' => [$this, 'check_admin_permissions']
         ]);
+        
+        register_rest_route($namespace, '/database/tables', [
+            'methods' => 'GET',
+            'callback' => [$this, 'list_tables'],
+            'permission_callback' => [$this, 'check_admin_permissions']
+        ]);
+        
+        register_rest_route($namespace, '/database/query', [
+            'methods' => 'POST',
+            'callback' => [$this, 'execute_query'],
+            'permission_callback' => [$this, 'check_admin_permissions']
+        ]);
+        
+        register_rest_route($namespace, '/database/option', [
+            'methods' => 'GET',
+            'callback' => [$this, 'get_option_value'],
+            'permission_callback' => [$this, 'check_admin_permissions']
+        ]);
+        
+        register_rest_route($namespace, '/database/option', [
+            'methods' => 'POST',
+            'callback' => [$this, 'update_option_value'],
+            'permission_callback' => [$this, 'check_admin_permissions']
+        ]);
     }
-    
-    // ========== PERMISSION CHECKS ==========
     
     public function check_file_permissions() {
         return current_user_can('edit_themes') && current_user_can('edit_plugins');
@@ -152,8 +163,6 @@ class WPMCP_Plugin {
     public function check_admin_permissions() {
         return current_user_can('manage_options');
     }
-    
-    // ========== FILE SYSTEM METHODS ==========
     
     private function validate_path($path) {
         $path = str_replace(['../', '..\\'], '', $path);
@@ -168,12 +177,12 @@ class WPMCP_Plugin {
         }
         
         if (!$is_allowed) {
-            return new WP_Error('invalid_path', 'Path must be within allowed directories: ' . implode(', ', $this->allowed_dirs));
+            return new WP_Error('invalid_path', 'Path must be within allowed directories');
         }
         
         $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
         if ($ext && !in_array($ext, $this->allowed_extensions)) {
-            return new WP_Error('invalid_extension', 'File extension not allowed: ' . $ext);
+            return new WP_Error('invalid_extension', 'File extension not allowed');
         }
         
         return ABSPATH . $path;
@@ -399,8 +408,6 @@ class WPMCP_Plugin {
         return ['success' => true];
     }
     
-    // ========== SHORTCODE METHODS ==========
-    
     public function list_shortcodes() {
         global $shortcode_tags;
         
@@ -432,8 +439,6 @@ class WPMCP_Plugin {
             'output' => $output
         ];
     }
-    
-    // ========== CRON METHODS ==========
     
     public function list_cron_jobs() {
         $cron = _get_cron_array();
@@ -512,7 +517,90 @@ class WPMCP_Plugin {
         return ['success' => true, 'message' => 'Cron triggered'];
     }
     
-    // ========== HELPER METHODS ==========
+    public function list_tables() {
+        global $wpdb;
+        
+        $tables = $wpdb->get_results('SHOW TABLES', ARRAY_N);
+        
+        $table_list = [];
+        foreach ($tables as $table) {
+            $table_name = $table[0];
+            $row_count = $wpdb->get_var("SELECT COUNT(*) FROM `$table_name`");
+            
+            $table_list[] = [
+                'name' => $table_name,
+                'rows' => (int)$row_count,
+                'is_wp_table' => strpos($table_name, $wpdb->prefix) === 0
+            ];
+        }
+        
+        return [
+            'tables' => $table_list,
+            'total' => count($table_list),
+            'prefix' => $wpdb->prefix
+        ];
+    }
+    
+    public function execute_query($request) {
+        global $wpdb;
+        
+        $query = $request->get_param('query');
+        
+        if (empty($query)) {
+            return new WP_Error('missing_query', 'SQL query is required');
+        }
+        
+        $query_type = strtoupper(trim(substr($query, 0, 10)));
+        
+        if (!preg_match('/^SELECT|^SHOW|^DESCRIBE|^EXPLAIN/', $query_type)) {
+            return new WP_Error('unsafe_query', 'Only SELECT, SHOW, DESCRIBE, EXPLAIN allowed');
+        }
+        
+        $results = $wpdb->get_results($query, ARRAY_A);
+        
+        if ($wpdb->last_error) {
+            return new WP_Error('query_error', $wpdb->last_error);
+        }
+        
+        return [
+            'results' => $results,
+            'rows' => count($results),
+            'query' => $query
+        ];
+    }
+    
+    public function get_option_value($request) {
+        $option_name = $request->get_param('name');
+        
+        if (empty($option_name)) {
+            return new WP_Error('missing_name', 'Option name is required');
+        }
+        
+        $value = get_option($option_name, null);
+        
+        return [
+            'name' => $option_name,
+            'value' => $value,
+            'exists' => $value !== null
+        ];
+    }
+    
+    public function update_option_value($request) {
+        $option_name = $request->get_param('name');
+        $value = $request->get_param('value');
+        
+        if (empty($option_name)) {
+            return new WP_Error('missing_name', 'Option name is required');
+        }
+        
+        $updated = update_option($option_name, $value);
+        
+        return [
+            'name' => $option_name,
+            'updated' => $updated,
+            'value' => $value
+        ];
+    }
     
     private function get_callback_info($callback) {
         if (is_string($callback)) {
@@ -523,11 +611,13 @@ class WPMCP_Plugin {
             }
             return implode('::', $callback);
         } elseif (is_object($callback)) {
-            return $callback instanceof \Closure ? 'Closure' : get_class($callback);
+            if ($callback instanceof \Closure) {
+                return 'Closure';
+            }
+            return get_class($callback);
         }
         return 'Unknown';
     }
 }
 
-// Initialize plugin
 new WPMCP_Plugin();

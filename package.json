@@ -1,7 +1,7 @@
 {
   "name": "wpmcp",
-  "version": "1.0.5",
-  "description": "MCP server for WordPress with 49+ tools for complete site management through AI",
+  "version": "2.0.0",
+  "description": "MCP server for WordPress with 115+ tools - complete WordPress developer control including file system, themes, plugins, menus, database, cron, and widgets",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
@@ -34,7 +34,13 @@
     "langgraph",
     "anthropic",
     "cms",
-    "content-management"
+    "content-management",
+    "wordpress-developer",
+    "theme-development",
+    "plugin-management",
+    "wordpress-database",
+    "file-system",
+    "child-themes"
   ],
   "author": {
     "name": "Rahees Ahmed",

@@ -24,6 +24,7 @@ import { registerCustomPostTypeTools } from './tools/custom-post-types.js';
 import { registerShortcodeTools } from './tools/shortcodes.js';
 import { registerCronTools } from './tools/cron.js';
 import { registerWidgetTools } from './tools/widgets.js';
+import { registerDatabaseTools } from './tools/database.js';
 
 // Validate configuration
 config.validate();
@@ -75,11 +76,14 @@ registerCronTools(server);
 console.log('  ✅ Cron & Scheduled Tasks (5 tools) - NEW!');
 
 registerWidgetTools(server);
-console.log('  ✅ Widget Management (6 tools) - NEW!');
+console.log('  ✅ Widget Management (6 tools)');
+
+registerDatabaseTools(server);
+console.log('  ✅ Database Operations (6 tools) - NEW!');
 
 console.log('');
 console.log('✅ WordPress MCP Server initialized');
-console.log(`📋 Total: 109+ WordPress management tools loaded`);
+console.log(`📋 Total: 115+ WordPress management tools loaded`);
 console.log('');
 console.log('🔧 Available Feature Categories:');
 console.log('  📝 Posts: create, update, delete, publish, schedule, search, duplicate, revisions, bulk operations');
@@ -99,9 +103,10 @@ console.log('  🎨 Theme Manager: activate, create child themes, modify theme.j
 console.log('  🔌 Plugin Manager: activate, deactivate, delete, read/write plugin files, status checks');
 console.log('  🧭 Menu Manager: create menus, add items, assign to locations, full navigation control');
 console.log('  📋 Custom Post Types: get post types, taxonomies, create/update terms');
-console.log('  📝 Shortcodes (NEW): list registered shortcodes, execute shortcode strings');
-console.log('  ⏰ Cron Jobs (NEW): schedule events, manage tasks, manual cron execution');
-console.log('  🔧 Widgets (NEW): get sidebars, manage widgets, widget types');
+console.log('  📝 Shortcodes: list registered shortcodes, execute shortcode strings');
+console.log('  ⏰ Cron Jobs: schedule events, manage tasks, manual cron execution');
+console.log('  🔧 Widgets: get sidebars, manage widgets, widget types');
+console.log('  🗄️ Database (NEW): execute queries, manage options, list tables, inspect data');
 console.log('');
 console.log('🔗 Listening for MCP requests...');
 
