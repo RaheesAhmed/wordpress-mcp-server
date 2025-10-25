@@ -17,6 +17,8 @@ A Model Context Protocol (MCP) server that gives AI agents complete control over
 - ✅ **Plugin Control** - Activate, deactivate, and modify plugins
 - ✅ **Menu Management** - Create menus, add items, assign to locations
 - ✅ **Custom Content Types** - Manage post types and taxonomies
+- ✅ **Shortcodes & Cron** - Execute shortcodes, schedule tasks
+- ✅ **Widget System** - Manage sidebars and widgets
 - ✅ **Complete Security** - Multi-layer validation and automatic backups
 
 ## Quick Start
@@ -47,11 +49,19 @@ Add to your MCP client (Claude Desktop, Cline, etc.):
 }
 ```
 
-### 3. Install WordPress Plugin (for file operations)
+### 3. Install WordPress Plugin (Required)
 
-1. Upload `filesystem-plugin/wpmcp-filesystem.php` to `/wp-content/plugins/`
-2. Activate via WordPress Admin → Plugins
+1. Upload `wpmcp-plugin/wpmcp-plugin.php` to `/wp-content/plugins/wpmcp-plugin/`
+2. Activate via WordPress Admin → Plugins → "WordPress MCP Server Plugin"
 3. Ensure you have `edit_themes` and `edit_plugins` capabilities
+
+**What the plugin enables:**
+- File system operations (read, write, delete, copy, move)
+- Shortcode execution
+- Cron job management
+- All advanced WordPress features
+
+See [`wpmcp-plugin/README.md`](./wpmcp-plugin/README.md) for detailed setup guide.
 
 ### 4. Use
 
@@ -80,6 +90,9 @@ Add to your MCP client (Claude Desktop, Cline, etc.):
 | **Plugin Manager** (10) | activate, deactivate, read/write files | Full plugin control |
 | **Menu Manager** (8) | create, add items, assign locations | Full navigation control |
 | **Custom Types** (7) | get post types, taxonomies, manage terms | Advanced content types |
+| **Shortcodes** (3) | list, execute, check existence | Shortcode system |
+| **Cron Jobs** (5) | list, schedule, unschedule, run manually | Task scheduling |
+| **Widgets** (6) | get sidebars, widgets, types, update | Widget management |
 
 ## What You Can Do
 
@@ -150,6 +163,29 @@ Add to your MCP client (Claude Desktop, Cline, etc.):
 "Get all taxonomies"
 "Show me all categories"
 "Create a new category called 'Technology'"
+```
+
+### Shortcodes
+```
+"List all registered shortcodes"
+"Execute [gallery ids='1,2,3']"
+"Check if 'contact-form' shortcode exists"
+```
+
+### Cron Jobs & Scheduled Tasks
+```
+"Show me all scheduled cron jobs"
+"Schedule a daily backup task"
+"Run WordPress cron manually"
+"Get available cron schedules"
+```
+
+### Widgets
+```
+"Get all widget areas"
+"Show me all available widget types"
+"Get widgets in the sidebar"
+"List inactive widgets"
 ```
 
 ### File Operations
@@ -270,17 +306,17 @@ All features tested on live WordPress:
 
 ## Roadmap
 
-**Current:** 95/200 tools (47.5% complete)
+**Current:** 109/200 tools (54.5% complete)
 
 - ✅ **Phase 1:** File System Operations (8 tools)
 - ✅ **Phase 2:** Theme & Plugin Management (23 tools)
-- ✅ **Phase 3 (Partial):** Menus & Custom Post Types (15 tools)
-- 📅 **Phase 3 (Remaining):** Shortcodes, Cron, Widgets (20 tools)
-- 📅 **Phase 4:** WooCommerce, Gutenberg Blocks (27 tools)
-- 📅 **Phase 5:** Security, Performance, Backups (33 tools)
-- 📅 **Phase 6:** WP-CLI, Debugging, i18n (40 tools)
+- ✅ **Phase 3:** Advanced WordPress APIs (29 tools) - COMPLETE
+  - Menus (8), Custom Types (7), Shortcodes (3), Cron (5), Widgets (6)
+- 📅 **Phase 4:** WooCommerce + Gutenberg Blocks (27 tools)
+- 📅 **Phase 5:** Security, Performance, Backups, Multisite (33 tools)
+- 📅 **Phase 6:** WP-CLI, Debugging, i18n, REST API (40 tools)
 
-**Progress:** Nearly half way to complete WordPress developer replacement!
+**Progress:** 54.5% complete - Over halfway to 200 tools!
 
 See [`FEATURE_GAP_ANALYSIS.md`](./FEATURE_GAP_ANALYSIS.md) for complete roadmap.
 

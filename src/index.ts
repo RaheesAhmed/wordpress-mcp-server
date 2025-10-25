@@ -21,6 +21,9 @@ import { registerThemeTools } from './tools/themes.js';
 import { registerPluginTools } from './tools/plugins.js';
 import { registerMenuTools } from './tools/menus.js';
 import { registerCustomPostTypeTools } from './tools/custom-post-types.js';
+import { registerShortcodeTools } from './tools/shortcodes.js';
+import { registerCronTools } from './tools/cron.js';
+import { registerWidgetTools } from './tools/widgets.js';
 
 // Validate configuration
 config.validate();
@@ -63,11 +66,20 @@ registerMenuTools(server);
 console.log('  ✅ Menu Management (8 tools)');
 
 registerCustomPostTypeTools(server);
-console.log('  ✅ Custom Post Types & Taxonomies (7 tools) - NEW!');
+console.log('  ✅ Custom Post Types & Taxonomies (7 tools)');
+
+registerShortcodeTools(server);
+console.log('  ✅ Shortcode System (3 tools) - NEW!');
+
+registerCronTools(server);
+console.log('  ✅ Cron & Scheduled Tasks (5 tools) - NEW!');
+
+registerWidgetTools(server);
+console.log('  ✅ Widget Management (6 tools) - NEW!');
 
 console.log('');
 console.log('✅ WordPress MCP Server initialized');
-console.log(`📋 Total: 95+ WordPress management tools loaded`);
+console.log(`📋 Total: 109+ WordPress management tools loaded`);
 console.log('');
 console.log('🔧 Available Feature Categories:');
 console.log('  📝 Posts: create, update, delete, publish, schedule, search, duplicate, revisions, bulk operations');
@@ -86,7 +98,10 @@ console.log('  📁 File System: read, write, delete, copy, move files - secure 
 console.log('  🎨 Theme Manager: activate, create child themes, modify theme.json, read/write theme files');
 console.log('  🔌 Plugin Manager: activate, deactivate, delete, read/write plugin files, status checks');
 console.log('  🧭 Menu Manager: create menus, add items, assign to locations, full navigation control');
-console.log('  📋 Custom Post Types (NEW): get post types, taxonomies, create/update terms');
+console.log('  📋 Custom Post Types: get post types, taxonomies, create/update terms');
+console.log('  📝 Shortcodes (NEW): list registered shortcodes, execute shortcode strings');
+console.log('  ⏰ Cron Jobs (NEW): schedule events, manage tasks, manual cron execution');
+console.log('  🔧 Widgets (NEW): get sidebars, manage widgets, widget types');
 console.log('');
 console.log('🔗 Listening for MCP requests...');
 
