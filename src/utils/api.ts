@@ -16,9 +16,10 @@ import { config } from '../config/wordpress.js';
 export async function callWordPressAPI(
   endpoint: string,
   method: string = 'GET',
-  body?: any
+  body?: any,
+  namespace: string = 'wp/v2'
 ): Promise<any> {
-  const url = `${config.url}/wp-json/wp/v2${endpoint}`;
+  const url = `${config.url}/wp-json/${namespace}${endpoint}`;
   
   try {
     const response = await fetch(url, {

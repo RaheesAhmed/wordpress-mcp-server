@@ -25,6 +25,7 @@ import { registerShortcodeTools } from './tools/shortcodes.js';
 import { registerCronTools } from './tools/cron.js';
 import { registerWidgetTools } from './tools/widgets.js';
 import { registerDatabaseTools } from './tools/database.js';
+import { registerWooCommerceTools } from './tools/woocommerce.js';
 
 // Validate configuration
 config.validate();
@@ -79,11 +80,14 @@ registerWidgetTools(server);
 console.log('  ✅ Widget Management (6 tools)');
 
 registerDatabaseTools(server);
-console.log('  ✅ Database Operations (6 tools) - NEW!');
+console.log('  ✅ Database Operations (6 tools)');
+
+registerWooCommerceTools(server);
+console.log('  ✅ WooCommerce Integration (15 tools) - NEW!');
 
 console.log('');
 console.log('✅ WordPress MCP Server initialized');
-console.log(`📋 Total: 115+ WordPress management tools loaded`);
+console.log(`📋 Total: 130+ WordPress management tools loaded`);
 console.log('');
 console.log('🔧 Available Feature Categories:');
 console.log('  📝 Posts: create, update, delete, publish, schedule, search, duplicate, revisions, bulk operations');
@@ -106,7 +110,8 @@ console.log('  📋 Custom Post Types: get post types, taxonomies, create/update
 console.log('  📝 Shortcodes: list registered shortcodes, execute shortcode strings');
 console.log('  ⏰ Cron Jobs: schedule events, manage tasks, manual cron execution');
 console.log('  🔧 Widgets: get sidebars, manage widgets, widget types');
-console.log('  🗄️ Database (NEW): execute queries, manage options, list tables, inspect data');
+console.log('  🗄️ Database: execute queries, manage options, list tables, inspect data');
+console.log('  🛍️ WooCommerce (NEW): products, orders, customers, inventory, coupons, reports');
 console.log('');
 console.log('🔗 Listening for MCP requests...');
 
