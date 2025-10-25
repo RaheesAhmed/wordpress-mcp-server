@@ -1,6 +1,6 @@
 # WordPress MCP Server
 
-Enable AI to manage WordPress sites like a professional developer - 95+ tools for complete WordPress control.
+Enable AI to manage WordPress sites like a professional developer - 130+ tools for complete WordPress control.
 
 [![GitHub](https://img.shields.io/badge/GitHub-wordpress--mcp--server-blue?logo=github)](https://github.com/RaheesAhmed/wordpress-mcp-server)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -20,6 +20,10 @@ A Model Context Protocol (MCP) server that gives AI agents complete control over
 - ✅ **Shortcodes & Cron** - Execute shortcodes, schedule tasks
 - ✅ **Widget System** - Manage sidebars and widgets
 - ✅ **Database Operations** - Execute queries, manage options, inspect tables
+- ✅ **WooCommerce Integration** - Products, orders, customers, inventory, reports
+- ✅ **Gutenberg Blocks** - Block types, patterns, reusable blocks, templates
+- ✅ **Security Monitoring** - Site health, updates, integrity checks, debug logs
+- ✅ **Performance Optimization** - Cache management, database optimization, image processing
 - ✅ **Complete Security** - Multi-layer validation and automatic backups
 
 ## Quick Start
@@ -73,9 +77,9 @@ See [`wpmcp-plugin/README.md`](./wpmcp-plugin/README.md) for detailed setup guid
 "Create a blog post about WordPress and publish it"
 ```
 
-## Available Tools (115+)
+## Available Tools (130+)
 
-**👉 See [`WPMCP_TOOLS.MD`](./WPMCP_TOOLS.MD) for complete detailed list of all 115 tools.**
+**👉 See [`WPMCP_TOOLS.MD`](./WPMCP_TOOLS.MD) for complete detailed list of all 130 tools.**
 
 | Category | Tools | What You Can Do |
 |----------|-------|-----------------|
@@ -97,6 +101,10 @@ See [`wpmcp-plugin/README.md`](./wpmcp-plugin/README.md) for detailed setup guid
 | **Cron Jobs** (5) | list, schedule, unschedule, run manually | Task scheduling |
 | **Widgets** (6) | get sidebars, widgets, types, update | Widget management |
 | **Database** (6) | execute queries, manage options, list tables | Database operations |
+| **WooCommerce** (15) | products, orders, customers, inventory, coupons | E-commerce management |
+| **Gutenberg Blocks** (12) | block types, patterns, reusable blocks, templates | Modern block editor |
+| **Security** (7) | site health, updates, integrity, debug logs | Security monitoring |
+| **Performance** (8) | cache, optimization, cleanup, image processing | Performance tuning |
 
 ## What You Can Do
 
