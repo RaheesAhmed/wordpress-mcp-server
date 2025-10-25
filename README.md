@@ -34,7 +34,7 @@ A Model Context Protocol (MCP) server that gives AI agents complete control over
 ### 1. Install
 
 ```bash
-npm i -g wpmcp
+npm i -g wpmcp@3.0.0
 ```
 
 ### 2. Configure
@@ -46,7 +46,7 @@ Add to your MCP client (Claude Desktop, Cline, etc.):
   "mcpServers": {
     "wordpress": {
       "command": "npx",
-      "args": ["-y", "wpmcp"],
+      "args": ["-y", "wpmcp@3.0.0"],
       "env": {
         "WORDPRESS_URL": "https://your-site.com",
         "WORDPRESS_USERNAME": "admin",
