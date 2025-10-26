@@ -6,6 +6,18 @@ Enable AI to manage WordPress sites like a professional developer - 130+ tools f
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
 
+## 💝 Support This Project
+
+If this project helps you, consider supporting its development:
+
+**Cryptocurrency Donation**
+
+| **Select Coin** | **Select Network** | **Contract** | **Deposit Address** |
+|-----------------|-------------------|--------------|---------------------|
+| 🪙 **USDT** (TetherUS) | 🔗 **TRX** (Tron TRC20) | Ending in `jLj6t` | `TBJBb7fKyRdhqmWETyZoNP4X98mPk2Jxrt` |
+
+Your support helps maintain and improve this project! 🙏
+
 ## What This Is
 
 A Model Context Protocol (MCP) server that gives AI agents complete control over WordPress sites. Connect it to Claude, Cline, or any MCP-compatible AI, and manage WordPress through natural language.
@@ -330,6 +342,25 @@ All features tested on live WordPress:
 ## License
 
 MIT License - see [LICENSE](LICENSE)
+
+---
+
+## 💝 Support This Project
+
+If you find this project valuable, consider supporting its continued development:
+
+**Cryptocurrency Donation**
+
+| **Coin** | **Network** | **Contract Address** | **Deposit Address** |
+|----------|-------------|----------------------|---------------------|
+| 🪙 **USDT** (TetherUS) | 🔗 **TRX** (Tron TRC20) | Ending in `jLj6t` | `TBJBb7fKyRdhqmWETyZoNP4X98mPk2Jxrt` |
+
+**Copy Address:**
+```
+TBJBb7fKyRdhqmWETyZoNP4X98mPk2Jxrt
+```
+
+Your contributions help keep this project active and growing! Thank you for your support! 🙏
 
 ---
 
