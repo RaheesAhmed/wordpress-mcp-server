@@ -1,10 +1,6 @@
 # WordPress MCP Server
 
-Enable AI to manage WordPress sites like a professional developer - 130+ tools for complete WordPress control.
-
-[![GitHub](https://img.shields.io/badge/GitHub-wordpress--mcp--server-blue?logo=github)](https://github.com/RaheesAhmed/wordpress-mcp-server)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
+Enable AI to manage WordPress sites like a professional developer - 190+ tools for complete WordPress control.
 
 ## 💝 Support This Project
 
