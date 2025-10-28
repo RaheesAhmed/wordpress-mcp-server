@@ -45,6 +45,8 @@ A Model Context Protocol (MCP) server that gives AI agents complete control over
 
 ```bash
 npm i -g wpmcp@3.0.0
+or use
+WORDPRESS_URL="https://your-wordpress-website.com" WORDPRESS_USERNAME="YOUR-ADMIN-USERNAME" WORDPRESS_PASSWORD="APLLICATION-PASSWORD" npx wpmcp
 ```
 
 ### 2. Configure
