@@ -1,0 +1,18 @@
+<svg width="400" height="120" viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="60" cy="60" r="50" fill="#0073AA"/>
+  
+  <!-- WordPress W Icon -->
+  <path d="M 35 40 L 45 80 L 55 50 L 65 80 L 75 40" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="60" cy="35" r="4" fill="white"/>
+  
+  <!-- MCP Connection Lines -->
+  <path d="M 95 60 L 115 60" stroke="#0073AA" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="115" cy="60" r="4" fill="#0073AA"/>
+  
+  <!-- Text: WPMCP -->
+  <text x="130" y="75" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#0073AA">WPMCP</text>
+  
+  <!-- Subtitle -->
+  <text x="130" y="95" font-family="Arial, sans-serif" font-size="14" fill="#666">WordPress MCP Server</text>
+</svg>

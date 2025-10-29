@@ -1,6 +1,18 @@
-# WordPress MCP Server
+<div align="center">
+  <img src="logo.svg" alt="WPMCP Logo" width="400"/>
+  
+  # WordPress MCP Server
+  
+  <p><strong>Enable AI to manage WordPress sites like a professional developer</strong></p>
+  <p>190+ tools for complete WordPress control</p>
+  
+  [![npm version](https://img.shields.io/npm/v/wpmcp.svg)](https://www.npmjs.com/package/wpmcp)
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+  [![WordPress](https://img.shields.io/badge/WordPress-5.0+-blue.svg)](https://wordpress.org)
+  
+</div>
 
-Enable AI to manage WordPress sites like a professional developer - 190+ tools for complete WordPress control.
+---
 
 ## 💝 Support This Project
 
@@ -14,9 +26,8 @@ If this project helps you, consider supporting its development:
 
 Your support helps maintain and improve this project! 🙏
 
-## What This Is
 
-A Model Context Protocol (MCP) server that gives AI agents complete control over WordPress sites. Connect it to Claude, Cline, or any MCP-compatible AI, and manage WordPress through natural language.
+WPMCP server gives AI agents complete control over WordPress sites. Connect it to Claude, Cline, or any MCP-compatible AI, and manage WordPress through natural language.
 
 **Key Capabilities:**
 - ✅ **Content Management** - Posts, pages, media, users, comments
