@@ -31,6 +31,10 @@ Your support helps maintain and improve this project! 🙏
 
 WPMCP server gives AI agents complete control over WordPress sites. Connect it to Claude, Cline, or any MCP-compatible AI, and manage WordPress through natural language.
 
+<a href="https://glama.ai/mcp/servers/@RaheesAhmed/wordpress-mcp-server">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@RaheesAhmed/wordpress-mcp-server/badge" alt="WordPress Server MCP server" />
+</a>
+
 **Key Capabilities:**
 - ✅ **Content Management** - Posts, pages, media, users, comments
 - ✅ **File System Access** - Read and write theme/plugin files
