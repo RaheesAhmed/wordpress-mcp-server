@@ -5,6 +5,9 @@
   
   <p><strong>Enable AI to manage WordPress sites like a professional developer</strong></p>
   <p>190+ tools for complete WordPress control</p>
+
+  <a href="https://glama.ai/mcp/servers/@RaheesAhmed/wordpress-mcp-server">Also Available on glama.ai</a> | <a href="https://www.cursor.store/mcp/RaheesAhmed/wordpress-mcp-server">Cursor.store</a>
+
   
   [![npm version](https://img.shields.io/npm/v/wpmcp.svg)](https://www.npmjs.com/package/wpmcp)
   [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -49,6 +52,9 @@ WPMCP server gives AI agents complete control over WordPress sites. Connect it t
 - ✅ **Backup & Migration** - Full/partial backups, restore, export/import, cloning
 - ✅ **User Roles** - Custom roles, capabilities, permissions, role management
 - ✅ **Complete Security** - Multi-layer validation and automatic backups
+
+
+
 
 ## Quick Start
 
