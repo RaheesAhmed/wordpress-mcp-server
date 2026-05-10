@@ -18,6 +18,7 @@ define('WPMCP_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('WPMCP_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 // Load all feature modules
+require_once WPMCP_PLUGIN_DIR . 'includes/authentication.php';
 require_once WPMCP_PLUGIN_DIR . 'includes/filesystem.php';
 require_once WPMCP_PLUGIN_DIR . 'includes/shortcodes.php';
 require_once WPMCP_PLUGIN_DIR . 'includes/cron.php';
@@ -26,6 +27,7 @@ require_once WPMCP_PLUGIN_DIR . 'includes/security.php';
 require_once WPMCP_PLUGIN_DIR . 'includes/performance.php';
 
 // Initialize all modules
+new WPMCP_Authentication();
 new WPMCP_FileSystem();
 new WPMCP_Shortcodes();
 new WPMCP_Cron();

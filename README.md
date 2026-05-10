@@ -246,8 +246,8 @@ All operations are secure:
 ## WordPress Authentication
 
 **Self-Hosted WordPress:**
-1. Install [Basic Auth plugin](https://github.com/WP-API/Basic-Auth)
-2. Use your WordPress admin username and password
+1. Use your WordPress admin username and password
+2. Basic Authentication is built into the plugin
 
 **WordPress.com:**
 1. Requires Business plan or higher
