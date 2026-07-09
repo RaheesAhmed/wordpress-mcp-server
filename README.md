@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/raheesahmed-wordpress-mcp-server-badge.png)](https://mseep.ai/app/raheesahmed-wordpress-mcp-server)
+
 <div align="center">
   <img src="logo.svg" alt="WPMCP Logo" width="400"/>
   
